@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Compétences - Aimé KAFANDO</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">AIMÉ <span style="color: #FFC107; font-weight: 800;">DEV</span></a>
+        <div class="nav-links">
+            <a href="index.html" >Acceuil</a>
+            <a href="cv.html">CV</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="competences.html" class="active">Competences(+)</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+<br> <br>
+    <main>
+        <section class="competences" style="padding-top: 50px;" id="competences">
+            <h3>Compétences</h3>
+            
+            <form id="competence-form">
+                <label for="nom">Nom de la compétence:</label>
+                <input type="text" id="nom" placeholder="Ex: Développement Frontend" required>
+                
+                <label for="description">Description:</label>
+                <textarea id="description" placeholder="Ex: HTML, CSS, JavaScript"></textarea>
+                
+                <label for="niveau">Niveau de compétence:</label>
+                <select id="niveau">
+                    <option value="Débutant">Débutant</option>
+                    <option value="Intermédiaire">Intermédiaire</option>
+                    <option value="Avancé">Avancé</option>
+                </select>
+                
+                <button type="submit">Ajouter la compétence</button>
+            </form>
+        </section>
+        <br> <br>
+        <div style="flex: 2;">
+            <h3 style="color: #FFC107;text-align:center">Liste des compétences</h3> <br> <br>
+            <ul id="competence-list"></ul>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <a href="#" class="logo">AIMÉ <span style="color: #FFC107; font-weight: 800;">DEV</span></a><br><br>
+                <p>Développeur web full stack passionné par la création d'expériences numériques innovantes et performantes.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="cv.html">Mon CV</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Développement Frontend</a></li>
+                    <li><a href="#">Développement Backend</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:kafandoaime017@gmail.com">kafandoaime017@gmail.com</a></li>
+                    <li><a href="tel:+33759911246">+33759911246</a></li>
+                    <li><a href="#">Charleville-Mézières, France</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p style="text-align: center;">© 2024 Aimé Kafando. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+ // Skill Management Functionality
+let editingIndex = null;
+
+function getCompetences() {
+    const competences = JSON.parse(localStorage.getItem("competences")) || [];
+    const competencesList = document.getElementById("competence-list");
+    competencesList.innerHTML = "";
+
+    if (competences.length === 0) {
+        competencesList.innerHTML = `
+            <div class="no-competence-message">
+                <p style="text-align:center">
+                    <img src="assets/icons/undraw_no_data_re_kwbl.svg" height="200" alt="">
+                </p>
+                <p style="color:gray;text-align:center">Aucune compétence ajoutée pour le moment.</p>
+            </div>
+        `;
+    } else {
+        competences.forEach((competence, index) => {
+            competencesList.innerHTML += `
+                <li>
+                    <strong>${competence.nom}</strong>
+                    <p>${competence.description}</p>
+                    <small>Niveau: ${competence.niveau}</small>
+                    <div class="skill-actions">
+                        <button onclick="editCompetence(${index})" class="edit-btn">Modifier</button>
+                        <button onclick="deleteCompetence(${index})" class="delete-btn">Supprimer</button>
+                    </div>
+                </li>
+            `;
+        });
+    }
+}
+
+
+function addCompetence(event) {
+    event.preventDefault();
+    const nom = document.getElementById("nom").value;
+    const description = document.getElementById("description").value;
+    const niveau = document.getElementById("niveau").value;
+    const submitButton = document.querySelector("#competence-form button");
+
+    if (nom && description) {
+        const competences = JSON.parse(localStorage.getItem("competences")) || [];
+        
+        if (editingIndex !== null) {
+         
+            competences[editingIndex] = { nom, description, niveau };
+            editingIndex = null;
+            submitButton.textContent = "Ajouter la compétence";
+        } else {
+          
+            competences.push({ nom, description, niveau });
+        }
+
+        localStorage.setItem("competences", JSON.stringify(competences));
+        document.getElementById("competence-form").reset();
+        getCompetences();
+    }
+}
+
+function editCompetence(index) {
+    const competences = JSON.parse(localStorage.getItem("competences")) || [];
+    const competence = competences[index];
+    
+    
+    document.getElementById("nom").value = competence.nom;
+    document.getElementById("description").value = competence.description;
+    document.getElementById("niveau").value = competence.niveau;
+    
+  
+    const submitButton = document.querySelector("#competence-form button");
+    submitButton.textContent = "Mettre à jour la compétence";
+    
+   
+    editingIndex = index;
+}
+
+function deleteCompetence(index) {
+    const competences = JSON.parse(localStorage.getItem("competences")) || [];
+    competences.splice(index, 1);
+    localStorage.setItem("competences", JSON.stringify(competences));
+    
+   
+    if (editingIndex === index) {
+        document.getElementById("competence-form").reset();
+        const submitButton = document.querySelector("#competence-form button");
+        submitButton.textContent = "Ajouter la compétence";
+        editingIndex = null;
+    }
+    
+    getCompetences();
+}
+
+document.getElementById("competence-form").addEventListener("submit", addCompetence);
+window.onload = getCompetences;
+
+
+
+
+
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+    </script>
+</body>
+</html>
