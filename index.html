@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aimé KAFANDO</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+
+    <nav class="navbar">
+        
+        <a href="#" class="logo">AIMÉ <span style="color: orange;font-weight: 800;">DEV</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Acceuil</a>
+            <a href="cv.html">CV</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hello">BONJOUR!</p>
+            <h1 class="name">Je suis <span>Aimé</span><br>Kafando</h1>
+          
+            <p class="title">Développeur web full stack</p>
+            <p>
+                <small>Actuellement étudiant en Licence professionnelle en intégration et webdesign a l'Ecole d'Ingénieurs en Sciences Industrielles et Numérique</small>
+            </p><br>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">CONTACTEZ-MOI</a>
+                <a href="assets/cv/Profile.pdf" download="assets/cv/Profile.pdf" class="btn btn-secondary">TELECHARGER CV</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/moi.png" alt="Profile">
+        </div>
+    </section>
+
+   
+  
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="#" class="logo">AIMÉ <span style="color: orange;font-weight: 800;">DEV</span></a><br><br>
+                    <p>Développeur web full stack passionné par la création d'expériences numériques innovantes et performantes.</p>
+                   
+                </div>
+    
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="cv.html">Mon CV</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Développement Frontend</a></li>
+                        <li><a href="#">Développement Backend</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:kafandoaime017@gmail.com">kafandoaime017@gmail.com</a></li>
+                        <li><a href="tel:+33759911246">+33759911246</a></li>
+                        <li><a href="#">Charleville-Mézières, France</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="footer-bottom">
+                <p style="text-align: center;">© 2024 Aimé Kafando. Tous droits réservés.</p>
+            </div>
+        </footer>
+
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

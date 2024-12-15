@@ -1,0 +1,10 @@
+
+/* Ma palette de couleur */
+
+:root {
+    --primary: #FDB515;
+    --secondary: #16a34a;
+    --dark: #0a0a0a;
+    --light: #ffffff;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
