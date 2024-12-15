@@ -1,12 +1,19 @@
-### Pour visualiser le site en local voici les étapes à suivre
 
-### Ouvrir git Bash dans un repertoire ou dans le bureau et taper:
-    git clone <URL-du-dépôt>
+### Presentation du projet
 
-### Entrer dans le dossier
+Ce projet est un portfolio personnel développé en HTML et CSS, sans recours à des frameworks ou à des thèmes préconçus.
+
+
+Pour visualiser le site en local voici les étapes à suivre
+
+### Dabord Ouvrir git Bash dans un repertoire ou dans le bureau et taper:
+    git clone https://github.com/kafandoaime017/TPCV
+
+### Ensuite Entrer dans le dossier
     cd TPCV
 
-### Et finalement
+### Enfin
  Ouvrir le fichier index.html dans un navigateur (double-click).
 
-### Et voila le site dispobible dans le navigateur
+
+
