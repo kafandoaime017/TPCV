@@ -2,7 +2,7 @@
 RewriteEngine On
 
 # Assurer que le fichier robots.txt est accessible
-RewriteRule ^robots\.txt$ robots.txt [L]
+; RewriteRule ^robots\.txt$ robots.txt [L]
 
 # Redirection des URL avec .html vers leur version sans .html
 ; RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html
