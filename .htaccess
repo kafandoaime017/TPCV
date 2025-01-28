@@ -1,17 +1,14 @@
 # Activer le moteur de réécriture
 RewriteEngine On
 
-# Assurer que le fichier robots.txt est accessible
-RewriteRule ^robots\.txt$ \robots.txt [L]
-
 # Redirection des URL avec .html vers leur version sans .html
 RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html
 RewriteRule ^ /%1 [R=301,L]
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [L]
 
-
-
+# Réécriture pour servir le fichier index.html pour toutes les requêtes non trouvées
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.html [L]
 
 # Gestion des erreurs 404
 ErrorDocument 404 /404.html
