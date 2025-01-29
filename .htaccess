@@ -10,9 +10,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [L]
 
-# Empêcher l’accès direct aux .html
-RewriteCond %{THE_REQUEST} "\.html " [NC]
-RewriteRule .* - [F]
+
 
 # Redirection pour que seule une version de la page soit accessible
 RewriteCond %{REQUEST_URI} !/$ [NC]
@@ -21,5 +19,4 @@ RewriteRule ^([^/.]+)/?$ /$1/ [R=301,L]
 # Gestion des erreurs 404
 ErrorDocument 404 /404.html
 
-# Désactiver l’indexation des répertoires
-Options -Indexes
+
