@@ -1,14 +1,17 @@
 # Activer le moteur de réécriture
 RewriteEngine On
 
-# Redirection des URL avec .html vers leur version sans .html
-RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html
+# Redirection des URLs avec .html vers leur version sans .html
+RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# Réécriture pour servir le fichier index.html pour toutes les requêtes non trouvées
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.html [L]
+# Empêcher l'accès direct aux fichiers .html
+RewriteCond %{REQUEST_URI} \.html$ [NC]
+RewriteRule ^ - [F]
+
+# Réécriture pour servir le bon fichier
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
 
 # Gestion des erreurs 404
 ErrorDocument 404 /404.html
@@ -20,3 +23,8 @@ Options -Indexes
 <FilesMatch "\.php$">
     Require all denied
 </FilesMatch>
+
+# Ajouter une balise canonical pour éviter la duplication
+<IfModule mod_headers.c>
+    Header set Link "<https://ton-site.com/%{REQUEST_URI}>; rel=\"canonical\"" env=REDIRECT_STATUS
+</IfModule>
