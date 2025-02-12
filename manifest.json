@@ -3,11 +3,25 @@
     "theme_color": "#000000",
     "background_color": "#000000",
     "short_name": "portfolio",
-    "display":"fullscreen",
+    "display": "fullscreen",
     "id": "kafando-aime",
     "description": "Ceci est une description de mon portfolio",
     "categories": [
-      "personalization"
+      "education",
+      "personalization",
+      "productivity"
     ],
-    "lang":"fr"
+    "lang": "fr",
+    "start_url": "https://kafandoaime017.github.io/TPCV/",
+    "orientation": "any",
+    "prefer_related_applications": true,
+    "iarc_rating_id": "Portfolio Aimé",
+    "dir": "auto",
+    "display_override": [
+      "fullscreen",
+      "browser",
+      "minimal-ui",
+      "window-controls-overlay",
+      "standalone"
+    ]
   }
