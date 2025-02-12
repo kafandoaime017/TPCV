@@ -291,6 +291,13 @@
 
         gtag('config', 'G-VKZTKN9LF0');
     </script>
+        <script>
+            if('serviceWorker' in navigator){
+                navigator.serviceWorker.register('/service-worker.js')
+                .then(reg=>console.log(" Service worker enregistré !!"))
+                .catch(err=>console.error('Service worker erreur',err))
+            }
+        </script>
 </body>
 
 </html>
