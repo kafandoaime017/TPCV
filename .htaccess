@@ -13,6 +13,9 @@ RewriteRule ^(.*)$ index.html [L]
 # Gestion des erreurs 404
 ErrorDocument 404 /404.html
 
+Redirect 301 /robots.txt /TPCV/robots.txt
+
+
 # Désactiver l'indexation des répertoires
 Options -Indexes
 
