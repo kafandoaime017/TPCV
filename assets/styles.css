@@ -283,7 +283,7 @@ body {
     height: auto;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transition: var(--transition);
+    /* transition: var(--transition); */
 }
 
 .hero-image::before {
@@ -294,7 +294,7 @@ body {
     border-radius: 20px;
     opacity: 0.1;
     transform: rotate(-3deg);
-    transition: var(--transition);
+    /* transition: var(--transition); */
 }
 
 .hero-image:hover img {
