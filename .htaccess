@@ -5,6 +5,12 @@ RewriteEngine On
  RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html
  RewriteRule ^ /%1 [R=301,L]
 
+ # Transformer les URLs en minuscules
+RewriteMap tolower int:tolower
+
+RewriteCond %{REQUEST_URI} [A-Z]
+RewriteRule ^(.*)$ ${tolower:$1} [R=301,L]
+
 # Réécriture pour servir le fichier index.html pour toutes les requêtes non trouvées
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
