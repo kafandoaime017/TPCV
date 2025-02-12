@@ -3,9 +3,11 @@
     "theme_color": "#000000",
     "background_color": "#000000",
     "short_name": "portfolio",
+    "display":"fullscreen",
     "id": "kafando-aime",
     "description": "Ceci est une description de mon portfolio",
     "categories": [
       "personalization"
-    ]
+    ],
+    "lang":"fr"
   }
