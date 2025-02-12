@@ -1,0 +1,11 @@
+{
+    "name": "Portfolio Aimé",
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "short_name": "portfolio",
+    "id": "kafando-aime",
+    "description": "Ceci est une description de mon portfolio",
+    "categories": [
+      "personalization"
+    ]
+  }
